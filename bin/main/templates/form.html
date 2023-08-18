@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<meta charset="UTF-8">
+		<title>Lista de Tareas</title>
+	<style>
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #393E46;
+    color:aliceblue;
+}
+
+
+.contenedor{
+ 
+  	width: 90%;
+    height: auto;
+    padding: 2rem 1rem;
+    margin: 50px auto;
+    margin-top: 150px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(192, 192, 192);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
+}			
+
+
+.button2{
+	text-decoration: None;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    background-color: #D65A31;
+    color: black;
+    cursor: pointer;
+}
+
+.button2:hover{
+
+   
+    background-color:gray;
+    color: #fff;
+}
+
+.card-header{
+	 background-color: #393E46;
+	 color: white;
+	 border-radius: 5px;
+}
+		</style>
+	</head>
+	<body>
+		
+		<div class="container mt-4">
+			<div class="col-sm-6">
+				<form th:action="@{/save}" th:object=${persona} method="post">
+					
+					<div class="contenedor">
+						<div class="card-header">
+							<h3>Nueva Tarea</h3>
+						</div>
+						<div class="card-body">
+							<div class="form-gruop">
+								<label>Numero</label>
+								<input th:field="*{id}" type="text" class="form-control"/>
+							</div>
+							<div class="form-gruop">
+								<label>Titulo</label>
+								<input th:field="*{name}" type="text" class="form-control"/>
+							</div>
+							<div class="form-gruop">
+								<label>Descripcion</label>
+								<input th:field="*{telefono}" type="text" class="form-control"/>
+							</div>
+						</div>
+						<div class="card-footer">
+							<input type="submit" value="Guardar" class="button2 btn btn-success">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		
+	</body>	
+</html>
